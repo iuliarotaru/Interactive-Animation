@@ -1,0 +1,530 @@
+/*  BASIC SETUP */
+/*  ----------------------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  background-image: url(../images/background.png);
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+
+.startbutton {
+  font-size: 2em;
+  padding: 25px;
+  background: red;
+  max-width: 400px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: sans-serif;
+  font-weight: 800;
+  animation: glowing 0.5s infinite alternate;
+  pointer-events: auto;
+  display: block;
+}
+
+.startbutton:hover {
+  cursor: pointer;
+}
+
+#man,
+#cactus,
+#bird,
+#cloud {
+  position: absolute;
+}
+
+#man:hover,
+#cactus:hover,
+#cloud:hover {
+  cursor: pointer;
+}
+
+/*  ----------------------------- */
+/*  CHARACTERS */
+/*  ----------------------------- */
+
+#cactus {
+  background-image: url(../images/cactus.png);
+  height: 63vh;
+  width: 26vh;
+  background-repeat: no-repeat;
+  left: 740px;
+  top: 80px;
+}
+
+#bird {
+  background-image: url(../images/bird.png);
+  height: 18vh;
+  width: 18vh;
+  left: 830px;
+  top: 120px;
+  background-repeat: no-repeat;
+}
+
+#man {
+  background-image: url(../images/old_sprite_sheet.png);
+  height: 482px;
+  width: 254px;
+  left: 400px;
+  top: 150px;
+}
+
+.manWalkingIn {
+  animation: walk 2s steps(12) infinite;
+  animation-iteration-count: 1;
+}
+
+@keyframes walk {
+  to {
+    background-position: -3047px;
+  }
+}
+
+#mancontainer {
+  height: 482px;
+  width: 254px;
+  position: relative;
+}
+
+.manContainerMoving {
+  animation: manWalkingIn 6s forwards;
+}
+
+@keyframes manWalkingIn {
+  0% {
+    right: -600px;
+  }
+
+  to {
+    right: 10%;
+  }
+}
+
+#cloud {
+  background-image: url(../images/toughts_bubble.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 50px;
+  left: 100px;
+  width: 300px;
+  height: 300px;
+}
+
+/*  ----------------------------- */
+/*  ANIMATION */
+/*  ----------------------------- */
+
+.glow {
+  animation: glowing 0.5s infinite alternate;
+}
+
+@keyframes glowing {
+  to {
+    filter: drop-shadow(5px 5px 7px black);
+  }
+}
+
+.shake {
+  animation: shake 2.5s alternate forwards;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.fly {
+  animation: move 3s linear forwards;
+}
+
+@keyframes move {
+  to {
+    transform: translate(-200px, -240px);
+  }
+
+  from {
+    transform: translate(0px);
+  }
+}
+
+.zoom {
+  animation: zoomIn 3s forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    transform: scale(100);
+  }
+}
+
+#memoryscene {
+  width: 100%;
+  background-image: url(../images/background_town.png);
+  background-size: cover;
+  position: absolute;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#luke {
+  position: absolute;
+  width: 130px;
+  height: 281px;
+  bottom: 150px;
+  right: 10%;
+}
+
+.lukeDefault {
+  background-image: url(../images/young_.png);
+  background-size: 150px;
+  background-repeat: no-repeat;
+}
+
+.lukeWalkingIn {
+  background-image: url(../images/young_.png);
+  background-size: 150px;
+  background-repeat: no-repeat;
+  animation: lukeWalkingIn 2s forwards;
+  animation-timing-function: cubic-bezier(0, 0.73, 0.79, 0.67);
+}
+
+@keyframes lukeWalkingIn {
+  0% {
+    right: -300px;
+  }
+
+  to {
+    right: 10%;
+  }
+}
+
+.lukeInLove {
+  position: absolute;
+  width: 130px;
+  height: 281px;
+  bottom: 150px;
+  right: 0;
+  background-image: url(../images/sprite_sheet_inlove.png);
+  background-size: 600px;
+  background-repeat: no-repeat;
+  animation: lukeInLove 1s steps(4) infinite;
+  animation-iteration-count: 5;
+}
+
+@keyframes lukeInLove {
+  100% {
+    background-position: -600px;
+  }
+}
+
+.lukeHeartBroken {
+  background-image: url(../images/broken_heart.png);
+  background-size: 460px;
+  background-repeat: no-repeat;
+  animation: lukeHeartBroken 1s steps(3) forwards;
+  animation-iteration-count: 3;
+}
+
+@keyframes lukeHeartBroken {
+  100% {
+    background-position: -460px;
+  }
+}
+
+#girl {
+  position: absolute;
+  width: 130px;
+  height: 235px;
+  bottom: 200px;
+  left: 430px;
+}
+
+.girlDefault {
+  background-image: url(../images/female_character.png);
+  background-size: 135px;
+  background-repeat: no-repeat;
+}
+
+.girlInLove {
+  background-image: url(../images/female_spritesheet.png);
+  background-size: 500px;
+  animation: girlInLove 1s steps(4) infinite;
+}
+
+@keyframes girlInLove {
+  100% {
+    background-position: -500px;
+  }
+}
+
+#sheriff {
+  position: absolute;
+  width: 325px;
+  height: 410px;
+  bottom: 150px;
+  left: 100px;
+}
+
+.sheriffDefault {
+  background-image: url(../images/sprite_sheet_shining_teeth.png);
+  background-size: 1000px;
+  background-repeat: no-repeat;
+}
+
+.sheriffWithGirl {
+  background-image: url(../images/couple.png);
+  background-size: 330px;
+  background-repeat: no-repeat;
+}
+
+.sheriffAway {
+  background-image: url(../images/couple.png);
+  background-size: 330px;
+  background-repeat: no-repeat;
+  animation: sheriffAway 2s forwards;
+  animation-timing-function: cubic-bezier(0, 0.73, 0.79, 0.67);
+}
+
+@keyframes sheriffAway {
+  0% {
+    left: 100px;
+  }
+
+  to {
+    left: -300px;
+  }
+}
+
+#flowers {
+  width: 100px;
+  height: 120px;
+  background-image: url(../images/flowers.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  bottom: 20px;
+  left: 300px;
+  position: absolute;
+}
+
+.flowersClickable {
+  filter: drop-shadow(5px 5px 7px black);
+  animation: shakeGift 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+}
+
+.flowersNotClickable {
+  pointer-events: none;
+}
+
+#candies {
+  width: 100px;
+  height: 120px;
+  background-image: url(../images/candies.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  bottom: 20px;
+  left: 450px;
+  position: absolute;
+}
+
+.candiesClickable {
+  filter: drop-shadow(5px 5px 7px black);
+  animation: shakeGift 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  pointer-events: all;
+}
+
+#gift {
+  width: 100px;
+  height: 120px;
+  background-image: url(../images/gift_box.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  bottom: 20px;
+  left: 600px;
+  position: absolute;
+}
+
+.giftClickable {
+  filter: drop-shadow(5px 5px 7px black);
+  animation: shakeGift 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+}
+
+@keyframes shakeGift {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.flowersToGirl {
+  animation: flowersToGirl 2s forwards;
+}
+
+@keyframes flowersToGirl {
+  0% {
+    bottom: 20px;
+    left: 300px;
+  }
+
+  50% {
+    transform: translateY(-100px);
+    animation-timing-function: cubic-bezier(0.23, 0.66, 0.77, 0.57);
+  }
+
+  100% {
+    bottom: 250px;
+    left: 500px;
+    background-size: 1px;
+  }
+}
+
+.candyToGirl {
+  animation: candyToGirl 2s forwards;
+}
+
+@keyframes candyToGirl {
+  0% {
+    bottom: 20px;
+    left: 450px;
+  }
+
+  50% {
+    transform: translateY(-100px);
+    animation-timing-function: cubic-bezier(0.23, 0.66, 0.77, 0.57);
+  }
+
+  100% {
+    bottom: 250px;
+    left: 500px;
+    background-size: 1px;
+  }
+}
+
+.giftToGirl {
+  animation: giftToGirl 2s forwards;
+}
+
+@keyframes giftToGirl {
+  0% {
+    bottom: 20px;
+    left: 600px;
+  }
+
+  50% {
+    transform: translateY(-100px);
+    animation-timing-function: cubic-bezier(0.23, 0.66, 0.77, 0.57);
+  }
+
+  100% {
+    bottom: 250px;
+    left: 500px;
+    background-size: 1px;
+  }
+}
+
+.objectHidden {
+  display: none;
+}
+
+.objectDisplay {
+  display: block;
+}
+
+// STEFANIA
+
+/*  ----------------------------- */
+/*  BASIC SETUP */
+/*  ----------------------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#sunsetScene {
+  background-image: url(../images/background_sunset.png);
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+
+#manInSunset {
+  position: absolute;
+}
+
+/*  ----------------------------- */
+/*  CHARACTER */
+/*  ----------------------------- */
+
+#manInSunset {
+  background-image: url(../images/ending_horse.png);
+  height: 570px;
+  width: 230px;
+  left: 460px;
+  top: 100px;
+}
+
+.moveOut {
+  animation: moveOut 8s forwards ease-in-out;
+}
+
+@keyframes moveOut {
+  0% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(0.5) rotate(0.4deg);
+  }
+
+  100% {
+    transform: scale(0) rotate(0deg);
+  }
+}
